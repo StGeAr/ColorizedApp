@@ -30,31 +30,25 @@ class ViewController: UIViewController {
         for (label, slider) in colors {
             label.text = String(format: "%.2f", slider.value)
         }
-
-    }
-
-    @IBAction func redSliderAction() {
-        let sliderValue = CGFloat(redSlider.value)
-        
-        colorView.backgroundColor = UIColor.red.withAlphaComponent(sliderValue)
-        
-        redValue.text = String(format: "%.2f", redSlider.value)
     }
     
-    @IBAction func greenSliderAction() {
-        let sliderValue = CGFloat(greenSlider.value)
+    @IBAction func changeColorView() {
+        let colors: [UILabel : UISlider] = [
+            redValue : redSlider,
+            greenValue : greenSlider,
+            blueValue : blueSlider
+        ]
         
-        colorView.backgroundColor = UIColor.green.withAlphaComponent(sliderValue)
+        for (label, slider) in colors {
+            label.text = String(format: "%.2f", slider.value)
+            
+            colorView.backgroundColor = UIColor(
+                red: CGFloat(redSlider.value),
+                green: CGFloat(greenSlider.value),
+                blue: CGFloat(blueSlider.value),
+                alpha: 1
+            )
+        }
         
-        greenValue.text = String(format: "%.2f", greenSlider.value)
     }
-    
-    @IBAction func blueSliderAction() {
-        let sliderValue = CGFloat(blueSlider.value)
-        
-        colorView.backgroundColor = UIColor.blue.withAlphaComponent(sliderValue)
-        
-        blueValue.text = String(format: "%.2f", blueSlider.value)
-    }
-    
 }

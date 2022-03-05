@@ -49,7 +49,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="sEm-yF-69d">
                                         <rect key="frame" x="43" y="0.0" width="331" height="116"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="76F-VS-vSd">
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="17" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="76F-VS-vSd">
                                                 <rect key="frame" x="0.0" y="0.0" width="331" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="tGa-x0-5uq">
@@ -62,7 +62,7 @@
                                                         <rect key="frame" x="57" y="0.0" width="276" height="31"/>
                                                         <color key="minimumTrackTintColor" systemColor="systemRedColor"/>
                                                         <connections>
-                                                            <action selector="redSliderAction" destination="BYZ-38-t0r" eventType="valueChanged" id="xtp-BM-HHX"/>
+                                                            <action selector="changeColorView" destination="BYZ-38-t0r" eventType="valueChanged" id="les-uG-2Rm"/>
                                                         </connections>
                                                     </slider>
                                                 </subviews>
@@ -80,7 +80,7 @@
                                                         <rect key="frame" x="57" y="0.0" width="276" height="31"/>
                                                         <color key="minimumTrackTintColor" systemColor="systemGreenColor"/>
                                                         <connections>
-                                                            <action selector="greenSliderAction" destination="BYZ-38-t0r" eventType="valueChanged" id="ojB-ej-8FG"/>
+                                                            <action selector="changeColorView" destination="BYZ-38-t0r" eventType="valueChanged" id="T3c-7W-7U5"/>
                                                         </connections>
                                                     </slider>
                                                 </subviews>
@@ -98,7 +98,7 @@
                                                         <rect key="frame" x="57" y="0.0" width="276" height="31"/>
                                                         <color key="minimumTrackTintColor" systemColor="systemBlueColor"/>
                                                         <connections>
-                                                            <action selector="blueSliderAction" destination="BYZ-38-t0r" eventType="valueChanged" id="5kb-tb-cKd"/>
+                                                            <action selector="changeColorView" destination="BYZ-38-t0r" eventType="valueChanged" id="NBW-Hr-q0b"/>
                                                         </connections>
                                                     </slider>
                                                 </subviews>
