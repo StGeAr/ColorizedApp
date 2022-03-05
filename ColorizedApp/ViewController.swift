@@ -20,35 +20,34 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let colors: [UILabel : UISlider] = [
+        showSliderValue()
+    }
+    
+    @IBAction func changeColorView() {
+        showSliderValue()
+        showColor()
+    }
+}
+
+extension ViewController {
+    private func showSliderValue() {
+        let values: [UILabel : UISlider] = [
             redValue : redSlider,
             greenValue : greenSlider,
             blueValue : blueSlider
         ]
         
-        for (label, slider) in colors {
+        for (label, slider) in values {
             label.text = String(format: "%.2f", slider.value)
         }
     }
     
-    @IBAction func changeColorView() {
-        let colors: [UILabel : UISlider] = [
-            redValue : redSlider,
-            greenValue : greenSlider,
-            blueValue : blueSlider
-        ]
-        
-        for (label, slider) in colors {
-            label.text = String(format: "%.2f", slider.value)
-            
-            colorView.backgroundColor = UIColor(
-                red: CGFloat(redSlider.value),
-                green: CGFloat(greenSlider.value),
-                blue: CGFloat(blueSlider.value),
-                alpha: 1
-            )
-        }
-        
+    private func showColor() {
+        colorView.backgroundColor = UIColor(
+            red: CGFloat(redSlider.value),
+            green: CGFloat(greenSlider.value),
+            blue: CGFloat(blueSlider.value),
+            alpha: 1
+        )
     }
 }
