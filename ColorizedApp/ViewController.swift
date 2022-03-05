@@ -14,7 +14,6 @@ class ViewController: UIViewController {
     @IBOutlet var greenValue: UILabel!
     @IBOutlet var blueValue: UILabel!
     
-    
     @IBOutlet var redSlider: UISlider!
     @IBOutlet var greenSlider: UISlider!
     @IBOutlet var blueSlider: UISlider!
@@ -22,9 +21,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        redValue.text = String(format: "%.2f", redSlider.value)
-        greenValue.text = String(format: "%.2f", greenSlider.value)
-        blueValue.text = String(format: "%.2f", blueSlider.value)
+        let colors: [UILabel : UISlider] = [
+            redValue : redSlider,
+            greenValue : greenSlider,
+            blueValue : blueSlider
+        ]
+        
+        for (label, slider) in colors {
+            label.text = String(format: "%.2f", slider.value)
+        }
 
     }
 
@@ -51,15 +56,5 @@ class ViewController: UIViewController {
         
         blueValue.text = String(format: "%.2f", blueSlider.value)
     }
+    
 }
-
-
-
-
-
-//func sliderAction() {
-////    let sliderValue = CGFloat(slider.value)
-//    colorView.backgroundColor = UIColor.red.withAlphaComponent(sliderValue)
-//    redValue.text = String(format: "%.2f", redSlider.value)
-//
-//}
