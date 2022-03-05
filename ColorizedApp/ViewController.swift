@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         showSliderValue()
+        showColor()
     }
     
     @IBAction func changeColorView() {
