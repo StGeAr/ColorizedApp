@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        colorView.layer.cornerRadius = 10
         showSliderValue()
         showColor()
     }
