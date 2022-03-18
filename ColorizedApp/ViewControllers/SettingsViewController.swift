@@ -29,7 +29,7 @@ class SettingsViewController: UIViewController {
         setValue(for: redLabel, greenLabel, blueLabel)
     }
     
-    @IBAction func rgbSlerer(_ sender: UISlider) {
+    @IBAction func rgbSlider(_ sender: UISlider) {
         setColor()
         switch sender {
         case redSlider:
@@ -43,7 +43,6 @@ class SettingsViewController: UIViewController {
             blueTF.text = string(from: blueSlider)
         }
     }
-    
 }
 
 extension SettingsViewController {
