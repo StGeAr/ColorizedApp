@@ -23,16 +23,17 @@ class SettingsViewController: UIViewController {
     @IBOutlet var blueTF: UITextField!
     
     var delegate: SettingsViewControllerDelegate!
+    var viewColor: UIColor! 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         colorView.layer.cornerRadius = 10
-        setColor()
+        setNewColor()
         setValue(for: redLabel, greenLabel, blueLabel)
     }
     
     @IBAction func rgbSlider(_ sender: UISlider) {
-        setColor()
+        setNewColor()
         switch sender {
         case redSlider:
             redLabel.text = string(from: redSlider)
@@ -47,10 +48,13 @@ class SettingsViewController: UIViewController {
     }
     
      @IBAction func doneButtonPressed() {
-        delegate.setViewBackgroundColor(with: UIColor(red: CGFloat(redSlider.value),
-                                                      green: CGFloat(greenSlider.value),
-                                                      blue: CGFloat(blueSlider.value),
-                                                      alpha: 1))
+        delegate.setViewBackgroundColor(with: UIColor(
+                                                red: CGFloat(redSlider.value),
+                                                green: CGFloat(greenSlider.value),
+                                                blue: CGFloat(blueSlider.value),
+                                                alpha: 1
+                                                )
+        )
         dismiss(animated: true)
     }
     
@@ -58,7 +62,7 @@ class SettingsViewController: UIViewController {
 
 extension SettingsViewController {
     
-    private func setColor() {
+    private func setNewColor() {
         colorView.backgroundColor = UIColor(
             red: CGFloat(redSlider.value),
             green: CGFloat(greenSlider.value),
