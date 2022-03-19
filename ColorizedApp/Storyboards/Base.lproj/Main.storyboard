@@ -39,7 +39,7 @@
                     <navigationItem key="navigationItem" id="iSA-Y8-L3G">
                         <barButtonItem key="rightBarButtonItem" title="Item" id="bMl-KI-dH9">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="presentation" id="32w-mP-7hP"/>
+                                <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="32w-mP-7hP"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -53,7 +53,7 @@
             <objects>
                 <viewController title="SettingsViewController" id="BYZ-38-t0r" customClass="SettingsViewController" customModule="ColorizedApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DRD-E7-ien">
@@ -169,16 +169,27 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EIB-LJ-qxI">
+                                <rect key="frame" x="135.5" y="265" width="49" height="38"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="doneButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Ux-7L-EYq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DRD-E7-ien" secondAttribute="trailing" constant="20" id="1oa-qh-RzU"/>
                             <constraint firstItem="DRD-E7-ien" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="6ld-J8-BWQ"/>
+                            <constraint firstItem="EIB-LJ-qxI" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="MHb-nS-R4X"/>
                             <constraint firstItem="MGL-Dx-Arm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Nxt-3U-zeu"/>
                             <constraint firstItem="MGL-Dx-Arm" firstAttribute="top" secondItem="DRD-E7-ien" secondAttribute="bottom" constant="25" id="Yfk-dM-1oa"/>
                             <constraint firstItem="DRD-E7-ien" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="bAx-LQ-V8m"/>
                             <constraint firstAttribute="trailing" secondItem="MGL-Dx-Arm" secondAttribute="trailing" constant="16" id="dhP-Aj-vws"/>
+                            <constraint firstItem="EIB-LJ-qxI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eZm-vA-Asb"/>
                         </constraints>
                     </view>
                     <connections>

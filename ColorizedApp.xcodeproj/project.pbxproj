@@ -88,8 +88,8 @@
 		DEF7A97C27E4BE39009B74C4 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				DEF55BC627D28A4800D0D7E3 /* SettingsViewController.swift */,
 				DEFDDFBD27E6120F00E72B96 /* MainViewController.swift */,
+				DEF55BC627D28A4800D0D7E3 /* SettingsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";

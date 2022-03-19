@@ -22,6 +22,8 @@ class SettingsViewController: UIViewController {
     @IBOutlet var greenTF: UITextField!
     @IBOutlet var blueTF: UITextField!
     
+    var delegate: SettingsViewControllerDelegate!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         colorView.layer.cornerRadius = 10
@@ -43,6 +45,15 @@ class SettingsViewController: UIViewController {
             blueTF.text = string(from: blueSlider)
         }
     }
+    
+     @IBAction func doneButtonPressed() {
+        delegate.setViewBackgroundColor(with: UIColor(red: CGFloat(redSlider.value),
+                                                      green: CGFloat(greenSlider.value),
+                                                      blue: CGFloat(blueSlider.value),
+                                                      alpha: 1))
+        dismiss(animated: true)
+    }
+    
 }
 
 extension SettingsViewController {
