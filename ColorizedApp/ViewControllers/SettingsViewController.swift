@@ -144,81 +144,7 @@ extension SettingsViewController: UITextFieldDelegate {
     }
     
     @objc private func toolbarDoneButtonAction() {
-        guard let textFieldValue = redTF.text, !textFieldValue.isEmpty else {
-            showAlert(
-                title: "Invalid color value",
-                message: "Please, enter the value not greater than 1.00",
-                textField: redTF
-            )
-            redSlider.value = 1
-            redLabel.text = string(from: redSlider)
-            setNewColor()
-            return
-        }
-        guard let numberValue = Float(textFieldValue), numberValue <= 1  else {
-            showAlert(
-                title: "Invalid color value",
-                message: "Please, enter the value not greater than 1.00",
-                textField: redTF
-            )
-            redSlider.value = 1
-            redLabel.text = string(from: redSlider)
-            setNewColor()
-            return
-        }
-        redSlider.value = numberValue
-        setValue(for: redLabel)
-        
-        guard let textFieldValue = greenTF.text, !textFieldValue.isEmpty else {
-            showAlert(
-                title: "Invalid color value",
-                message: "Please, enter the value not greater than 1.00",
-                textField: greenTF
-            )
-            greenSlider.value = 1
-            greenLabel.text = string(from: greenSlider)
-            setNewColor()
-            return
-        }
-        guard let numberValue = Float(textFieldValue), numberValue <= 1 else {
-            showAlert(
-                title: "Invalid color value",
-                message: "Please, enter the value not greater than 1.00",
-                textField: greenTF
-            )
-            greenSlider.value = 1
-            greenLabel.text = string(from: greenSlider)
-            setNewColor()
-            return
-        }
-        greenSlider.value = numberValue
-        setValue(for: greenLabel)
-        
-        guard let textFieldValue = blueTF.text, !textFieldValue.isEmpty else {
-            showAlert(
-                title: "Invalid color value",
-                message: "Please, enter the value not greater than 1.00",
-                textField: blueTF
-            )
-            blueSlider.value = 1
-            blueLabel.text = string(from: blueSlider)
-            setNewColor()
-            return
-        }
-        guard let numberValue = Float(textFieldValue), numberValue <= 1 else {
-            showAlert(
-                title: "Invalid color value",
-                message: "Please, enter the value not greater than 1.00",
-                textField: blueTF
-            )
-            blueSlider.value = 1
-            blueLabel.text = string(from: blueSlider)
-            setNewColor()
-            return
-        }
-        blueSlider.value = numberValue
-        setValue(for: blueLabel)
-        
+        updateValue(from: redTF, greenTF, blueTF)
         setNewColor()
         view.endEditing(true)
     }
@@ -228,6 +154,92 @@ extension SettingsViewController: UITextFieldDelegate {
         toolbarDoneButtonAction()
         view.endEditing(true)
     }
+    
+    
+    private func updateValue(from texFields: UITextField...) {
+        texFields.forEach { textField in
+            switch textField {
+            case redTF:
+                guard let textFieldValue = redTF.text, !textFieldValue.isEmpty else {
+                    showAlert(
+                        title: "Invalid color value",
+                        message: "Please, enter the value not greater than 1.00",
+                        textField: redTF
+                    )
+                    redSlider.value = 1
+                    redLabel.text = string(from: redSlider)
+                    setNewColor()
+                    return
+                }
+                guard let numberValue = Float(textFieldValue), numberValue <= 1  else {
+                    showAlert(
+                        title: "Invalid color value",
+                        message: "Please, enter the value not greater than 1.00",
+                        textField: redTF
+                    )
+                    redSlider.value = 1
+                    redLabel.text = string(from: redSlider)
+                    setNewColor()
+                    return
+                }
+                redSlider.value = numberValue
+                setValue(for: redLabel)
+                
+            case greenTF:
+                guard let textFieldValue = greenTF.text, !textFieldValue.isEmpty else {
+                    showAlert(
+                        title: "Invalid color value",
+                        message: "Please, enter the value not greater than 1.00",
+                        textField: greenTF
+                    )
+                    greenSlider.value = 1
+                    greenLabel.text = string(from: greenSlider)
+                    setNewColor()
+                    return
+                }
+                guard let numberValue = Float(textFieldValue), numberValue <= 1 else {
+                    showAlert(
+                        title: "Invalid color value",
+                        message: "Please, enter the value not greater than 1.00",
+                        textField: greenTF
+                    )
+                    greenSlider.value = 1
+                    greenLabel.text = string(from: greenSlider)
+                    setNewColor()
+                    return
+                }
+                greenSlider.value = numberValue
+                setValue(for: greenLabel)
+                
+            default:
+                guard let textFieldValue = blueTF.text, !textFieldValue.isEmpty else {
+                    showAlert(
+                        title: "Invalid color value",
+                        message: "Please, enter the value not greater than 1.00",
+                        textField: blueTF
+                    )
+                    blueSlider.value = 1
+                    blueLabel.text = string(from: blueSlider)
+                    setNewColor()
+                    return
+                }
+                guard let numberValue = Float(textFieldValue), numberValue <= 1 else {
+                    showAlert(
+                        title: "Invalid color value",
+                        message: "Please, enter the value not greater than 1.00",
+                        textField: blueTF
+                    )
+                    blueSlider.value = 1
+                    blueLabel.text = string(from: blueSlider)
+                    setNewColor()
+                    return
+                }
+                blueSlider.value = numberValue
+                setValue(for: blueLabel)
+            }
+        }
+    }
+    
 }
 
 // MARK: - Alert Controller
