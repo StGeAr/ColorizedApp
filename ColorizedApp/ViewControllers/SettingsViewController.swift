@@ -169,3 +169,14 @@ extension SettingsViewController: UITextFieldDelegate {
         view.endEditing(true)
     }
 }
+
+extension SettingsViewController {
+    private func showAlert(title: String, message: String, textField: UITextField? = nil) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            textField?.text = "1.00"
+        }
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
+}
