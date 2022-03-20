@@ -144,17 +144,47 @@ extension SettingsViewController: UITextFieldDelegate {
     }
     
     @objc private func toolbarDoneButtonAction() {
-        guard let textFieldValue = redTF.text, !textFieldValue.isEmpty else { return }
+        guard let textFieldValue = redTF.text, !textFieldValue.isEmpty else {
+            showAlert(
+                title: "Invalid color value",
+                message: "Please, enter the value not greater than 1.00",
+                textField: redTF
+            )
+            redSlider.value = 1
+            redLabel.text = string(from: redSlider)
+            setNewColor()
+            return
+        }
         guard let numberValue = Float(textFieldValue), numberValue <= 1  else { return }
         redSlider.value = numberValue
         redLabel.text = string(from: redSlider)
         
-        guard let textFieldValue = greenTF.text, !textFieldValue.isEmpty else { return }
+        guard let textFieldValue = greenTF.text, !textFieldValue.isEmpty else {
+            showAlert(
+                title: "Invalid color value",
+                message: "Please, enter the value not greater than 1.00",
+                textField: greenTF
+            )
+            greenSlider.value = 1
+            greenLabel.text = string(from: greenSlider)
+            setNewColor()
+            return
+        }
         guard let numberValue = Float(textFieldValue), numberValue <= 1 else { return }
         greenSlider.value = numberValue
         greenLabel.text = string(from: greenSlider)
         
-        guard let textFieldValue = blueTF.text, !textFieldValue.isEmpty else { return }
+        guard let textFieldValue = blueTF.text, !textFieldValue.isEmpty else {
+            showAlert(
+                title: "Invalid color value",
+                message: "Please, enter the value not greater than 1.00",
+                textField: blueTF
+            )
+            blueSlider.value = 1
+            blueLabel.text = string(from: blueSlider)
+            setNewColor()
+            return
+        }
         guard let numberValue = Float(textFieldValue), numberValue <= 1 else { return }
         blueSlider.value = numberValue
         blueLabel.text = string(from: blueSlider)
