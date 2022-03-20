@@ -170,8 +170,8 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EIB-LJ-qxI">
-                                <rect key="frame" x="135.5" y="265" width="49" height="38"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <rect key="frame" x="125" y="273" width="70" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Done"/>
                                 <connections>
@@ -182,9 +182,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                         <constraints>
+                            <constraint firstItem="EIB-LJ-qxI" firstAttribute="top" secondItem="MGL-Dx-Arm" secondAttribute="bottom" constant="15" id="1kd-f6-6Sv"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DRD-E7-ien" secondAttribute="trailing" constant="20" id="1oa-qh-RzU"/>
                             <constraint firstItem="DRD-E7-ien" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="6ld-J8-BWQ"/>
-                            <constraint firstItem="EIB-LJ-qxI" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="MHb-nS-R4X"/>
                             <constraint firstItem="MGL-Dx-Arm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Nxt-3U-zeu"/>
                             <constraint firstItem="MGL-Dx-Arm" firstAttribute="top" secondItem="DRD-E7-ien" secondAttribute="bottom" constant="25" id="Yfk-dM-1oa"/>
                             <constraint firstItem="DRD-E7-ien" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="bAx-LQ-V8m"/>
