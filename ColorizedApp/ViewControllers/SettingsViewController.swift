@@ -24,6 +24,8 @@ class SettingsViewController: UIViewController {
     
     var delegate: SettingsViewControllerDelegate!
     var viewColor: UIColor!
+    let numberToolbar = UIToolbar()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +33,7 @@ class SettingsViewController: UIViewController {
         getRGB(for: viewColor)
         setNewColor()
         setValue(for: redLabel, greenLabel, blueLabel)
+        setupKeyboard(for: redTF, greenTF, blueTF)
     }
     
     @IBAction func rgbSlider(_ sender: UISlider) {
@@ -103,5 +106,25 @@ extension SettingsViewController {
         redSlider.value = Float(red)
         greenSlider.value = Float(green)
         blueSlider.value = Float(blue)
+    }
+    
+    private func setupKeyboard(for textFields: UITextField...) {
+        numberToolbar.items = [
+            UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil),
+            UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil),
+            UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.plain, target: self, action: nil)
+        ]
+        numberToolbar.sizeToFit()
+        
+        textFields.forEach { textField in
+            switch textField {
+            case redTF:
+                redTF.inputAccessoryView = numberToolbar
+            case greenTF:
+                greenTF.inputAccessoryView = numberToolbar
+            default:
+                blueTF.inputAccessoryView = numberToolbar
+            }
+        }
     }
 }
