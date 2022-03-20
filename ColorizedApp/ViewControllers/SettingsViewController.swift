@@ -132,10 +132,13 @@ extension SettingsViewController: UITextFieldDelegate {
             switch textField {
             case redTF:
                 redTF.inputAccessoryView = toolbar
+                redTF.keyboardType = .decimalPad
             case greenTF:
                 greenTF.inputAccessoryView = toolbar
+                greenTF.keyboardType = .decimalPad
             default:
                 blueTF.inputAccessoryView = toolbar
+                blueTF.keyboardType = .decimalPad
             }
         }
     }
