@@ -23,11 +23,12 @@ class SettingsViewController: UIViewController {
     @IBOutlet var blueTF: UITextField!
     
     var delegate: SettingsViewControllerDelegate!
-    var viewColor: UIColor! 
+    var viewColor: UIColor!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         colorView.layer.cornerRadius = 10
+        getRGB(for: viewColor)
         setNewColor()
         setValue(for: redLabel, greenLabel, blueLabel)
     }
@@ -89,5 +90,18 @@ extension SettingsViewController {
     
     private func string(from slider: UISlider) -> String {
         String(format: "%.2f", slider.value)
+    }
+    
+    private func getRGB (for color: UIColor){
+        var red: CGFloat = 0
+        var green: CGFloat = 0
+        var blue: CGFloat = 0
+        var alpha: CGFloat = 0
+
+        color.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+
+        redSlider.value = Float(red)
+        greenSlider.value = Float(green)
+        blueSlider.value = Float(blue)
     }
 }
