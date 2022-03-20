@@ -155,7 +155,17 @@ extension SettingsViewController: UITextFieldDelegate {
             setNewColor()
             return
         }
-        guard let numberValue = Float(textFieldValue), numberValue <= 1  else { return }
+        guard let numberValue = Float(textFieldValue), numberValue <= 1  else {
+            showAlert(
+                title: "Invalid color value",
+                message: "Please, enter the value not greater than 1.00",
+                textField: redTF
+            )
+            redSlider.value = 1
+            redLabel.text = string(from: redSlider)
+            setNewColor()
+            return
+        }
         redSlider.value = numberValue
         redLabel.text = string(from: redSlider)
         
@@ -170,7 +180,17 @@ extension SettingsViewController: UITextFieldDelegate {
             setNewColor()
             return
         }
-        guard let numberValue = Float(textFieldValue), numberValue <= 1 else { return }
+        guard let numberValue = Float(textFieldValue), numberValue <= 1 else {
+            showAlert(
+                title: "Invalid color value",
+                message: "Please, enter the value not greater than 1.00",
+                textField: greenTF
+            )
+            greenSlider.value = 1
+            greenLabel.text = string(from: greenSlider)
+            setNewColor()
+            return
+        }
         greenSlider.value = numberValue
         greenLabel.text = string(from: greenSlider)
         
@@ -185,7 +205,17 @@ extension SettingsViewController: UITextFieldDelegate {
             setNewColor()
             return
         }
-        guard let numberValue = Float(textFieldValue), numberValue <= 1 else { return }
+        guard let numberValue = Float(textFieldValue), numberValue <= 1 else {
+            showAlert(
+                title: "Invalid color value",
+                message: "Please, enter the value not greater than 1.00",
+                textField: blueTF
+            )
+            blueSlider.value = 1
+            blueLabel.text = string(from: blueSlider)
+            setNewColor()
+            return
+        }
         blueSlider.value = numberValue
         blueLabel.text = string(from: blueSlider)
         
@@ -200,6 +230,7 @@ extension SettingsViewController: UITextFieldDelegate {
     }
 }
 
+// MARK: - Alert Controller
 extension SettingsViewController {
     private func showAlert(title: String, message: String, textField: UITextField? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
