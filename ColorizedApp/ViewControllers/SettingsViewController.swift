@@ -8,6 +8,8 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
+    
+    //MARK: - IBOutlets
     @IBOutlet var colorView: UIView!
     
     @IBOutlet var redLabel: UILabel!
@@ -22,18 +24,24 @@ class SettingsViewController: UIViewController {
     @IBOutlet var greenTF: UITextField!
     @IBOutlet var blueTF: UITextField!
     
-    var delegate: SettingsViewControllerDelegate!
+    //MARK: - Outlets
     var viewColor: UIColor!
+    var delegate: SettingsViewControllerDelegate!
     
+    //MARK: - Override funcs
     override func viewDidLoad() {
         super.viewDidLoad()
         colorView.layer.cornerRadius = 10
+        
         getRGB(for: viewColor)
         setNewColor()
+        
         setValue(for: redLabel, greenLabel, blueLabel)
         setupKeyboard(for: redTF, greenTF, blueTF)
+        
     }
     
+    //MARK: - IBActions
     @IBAction func rgbSlider(_ sender: UISlider) {
         setNewColor()
         switch sender {
@@ -49,7 +57,7 @@ class SettingsViewController: UIViewController {
         }
     }
     
-     @IBAction func doneButtonPressed() {
+    @IBAction func doneButtonPressed() {
         delegate.setViewBackgroundColor(with: UIColor(
                                                 red: CGFloat(redSlider.value),
                                                 green: CGFloat(greenSlider.value),
@@ -59,9 +67,9 @@ class SettingsViewController: UIViewController {
         )
         dismiss(animated: true)
     }
-    
 }
 
+//MARK: - ColorView
 extension SettingsViewController {
     
     private func setNewColor() {
