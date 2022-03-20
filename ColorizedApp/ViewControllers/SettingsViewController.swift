@@ -24,8 +24,6 @@ class SettingsViewController: UIViewController {
     
     var delegate: SettingsViewControllerDelegate!
     var viewColor: UIColor!
-    let numberToolbar = UIToolbar()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,23 +106,55 @@ extension SettingsViewController {
         blueSlider.value = Float(blue)
     }
     
+}
+ 
+//MARK: - Keybord
+extension SettingsViewController: UITextFieldDelegate {
+        
     private func setupKeyboard(for textFields: UITextField...) {
-        numberToolbar.items = [
+        let toolbar = UIToolbar()
+        
+        toolbar.items = [
             UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil),
-            UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil),
-            UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.plain, target: self, action: nil)
+            UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.plain, target: self, action: #selector(toolbarDoneButtonAction))
         ]
-        numberToolbar.sizeToFit()
+        toolbar.sizeToFit()
         
         textFields.forEach { textField in
             switch textField {
             case redTF:
-                redTF.inputAccessoryView = numberToolbar
+                redTF.inputAccessoryView = toolbar
             case greenTF:
-                greenTF.inputAccessoryView = numberToolbar
+                greenTF.inputAccessoryView = toolbar
             default:
-                blueTF.inputAccessoryView = numberToolbar
+                blueTF.inputAccessoryView = toolbar
             }
         }
+    }
+    
+    @objc private func toolbarDoneButtonAction() {
+        guard let textFieldValue = redTF.text else { return }
+        guard let numberValue = Float(textFieldValue) else { return }
+        redSlider.value = numberValue
+        redLabel.text = string(from: redSlider)
+        
+        guard let textFieldValue = greenTF.text else { return }
+        guard let numberValue = Float(textFieldValue) else { return }
+        greenSlider.value = numberValue
+        greenLabel.text = string(from: greenSlider)
+        
+        guard let textFieldValue = blueTF.text else { return }
+        guard let numberValue = Float(textFieldValue) else { return }
+        blueSlider.value = numberValue
+        blueLabel.text = string(from: blueSlider)
+        
+        setNewColor()
+        view.endEditing(true)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        toolbarDoneButtonAction()
+        view.endEditing(true)
     }
 }
