@@ -167,7 +167,7 @@ extension SettingsViewController: UITextFieldDelegate {
             return
         }
         redSlider.value = numberValue
-        redLabel.text = string(from: redSlider)
+        setValue(for: redLabel)
         
         guard let textFieldValue = greenTF.text, !textFieldValue.isEmpty else {
             showAlert(
@@ -192,7 +192,7 @@ extension SettingsViewController: UITextFieldDelegate {
             return
         }
         greenSlider.value = numberValue
-        greenLabel.text = string(from: greenSlider)
+        setValue(for: greenLabel)
         
         guard let textFieldValue = blueTF.text, !textFieldValue.isEmpty else {
             showAlert(
@@ -217,12 +217,12 @@ extension SettingsViewController: UITextFieldDelegate {
             return
         }
         blueSlider.value = numberValue
-        blueLabel.text = string(from: blueSlider)
+        setValue(for: blueLabel)
         
         setNewColor()
         view.endEditing(true)
     }
-    
+        
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         toolbarDoneButtonAction()
